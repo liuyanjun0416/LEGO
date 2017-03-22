@@ -20,7 +20,7 @@ var checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
 var FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 var measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
 var printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
-
+var publish = require('./publish');
 var useYarn = fs.existsSync(paths.yarnLockFile);
 
 // Warn and crash if required files are missing
@@ -38,6 +38,7 @@ measureFileSizesBeforeBuild(paths.appBuild).then(previousFileSizes => {
   // Start the webpack build
   build(previousFileSizes);
 
+  publish();
   // Merge with the public folder
   copyPublicFolder();
 });

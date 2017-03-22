@@ -36,7 +36,7 @@ export default class Routes extends Component {
                         collapsed={this.state.collapsed}
                         onCollapse={this.onCollapse}
                     >
-                        <div className="logo" />
+                        <div className="logo" >LEGO</div>
                         <Menu theme="dark" mode={this.state.mode} defaultSelectedKeys={['1']}>
                             <Menu.Item key="1">
                                 <Link to="/">
