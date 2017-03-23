@@ -6,8 +6,6 @@ class App extends Component {
   constructor() {
     super();
     this.appendComponent = this.appendComponent.bind(this);
-    this.buttonClick = this.buttonClick.bind(this);
-    this.cardAppend = this.cardAppend.bind(this);
     this.state = {
       components: []
     };
@@ -34,18 +32,9 @@ class App extends Component {
       })
   }
 
-  buttonClick() {
-    this.appendComponent('AvatarCard', {
-      imgSrc: "https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg"
-    });
+  buttonClick(name,props) {
+    this.appendComponent(name, props);
   }
-
-  cardAppend(){
-    this.appendComponent('Card', {
-      text: "https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg"
-    });
-  }
-
 
   render() {
     const { components } = this.state;
@@ -57,8 +46,12 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Button type="primary" onClick={this.buttonClick}>Avatar</Button>
-        <Button type="primary" onClick={this.cardAppend}>Card</Button>
+        <Button type="primary" onClick={this.buttonClick.bind(this,'AvatarCard',{
+          imgSrc:"https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg"
+        })}>Avatar</Button>
+        <Button type="primary" onClick={this.buttonClick.bind(this,'Card',{
+          text:"https://t.alipayobjects.com/images/rmsweb/T1B9hfXcdvXXXXXXXX.svg"
+        })}>Card</Button>
         {getComponent()}
       </div>
     );
