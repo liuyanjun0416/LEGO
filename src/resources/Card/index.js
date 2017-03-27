@@ -5,10 +5,11 @@ export default class Card extends Component {
         super(props);
     }
     static defaultProps = {
-        text:""
+        text:"",
     }
     static propTypes = {
-        text:PropTypes.string
+        text:PropTypes.string,
+        onClick:PropTypes.func
     }
     render(){
         // const {imgSrc,imgLink,imgWidth,imgHeight} = this.props;
@@ -17,9 +18,9 @@ export default class Card extends Component {
         //     height:imgHeight,
         //     borderRadius:parseInt(imgWidth,10)/2
         // }
-        const {text} = this.props;
+        const {text,onClick} = this.props;
         return (
-            <p>{text}</p>
+            <p onClick={onClick}>{text}</p>
         );
     }
 }

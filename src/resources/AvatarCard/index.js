@@ -8,23 +8,24 @@ export default class AvatarCard extends Component {
         imgWidth:"60px",
         imgHeight:"60px",
         imgSrc:"",
-        imgLink:""
+        imgLink:"javascript:;"
     }
     static propTypes = {
         imgWidth:PropTypes.string,
         imgHeight:PropTypes.string,
         imgSrc:PropTypes.string,
-        imgLink:PropTypes.string
+        imgLink:PropTypes.string,
+        onClick:PropTypes.func
     }
     render(){
-        const {imgSrc,imgLink,imgWidth,imgHeight} = this.props;
+        const {imgSrc,imgLink,imgWidth,imgHeight,onClick} = this.props;
         const imgStyle = {
             width:imgWidth,
             height:imgHeight,
             borderRadius:parseInt(imgWidth,10)/2
         }
         return (
-            <a href={imgLink}>
+            <a href={imgLink} onClick={onClick}>
                 <img src={imgSrc} alt="" style={imgStyle} />
             </a>
         );
