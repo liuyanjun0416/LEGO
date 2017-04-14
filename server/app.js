@@ -22,7 +22,8 @@ app.use('/',(req,res,next) => {
 			"Access-Control-Allow-Credentials": "true"
 		});
     next();
-})
+});
+app.use('/lego-dev',express.static(path.join(__dirname, '..','.lego')));
 app.use('/api/component', require('./api/component'));
 
 app.get('*', (req, res) => {

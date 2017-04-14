@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, Input } from 'antd';
 import './About.css';
+import DeskIframe from '../../components/DeskIframe';
 import * as Components from '../../resources';
 class About extends Component {
 	constructor(props){
@@ -22,6 +23,13 @@ class About extends Component {
 		};
 		let domJsx = React.createElement(Components.default[name],props);
 		this.elementTree.push(domJsx);
+		const frameWindow = document.getElementById('mainFrame');
+		// localStorage.setItem('123',123);
+		console.log(JSON.stringify(this.elementTree));
+		if(frameWindow){
+			console.log(123);
+			frameWindow.contentWindow.setElementTree(name,props);
+		}
 		this.setState((state)=>{
 			return {
 				updateCount:state.updateCount+1
@@ -38,7 +46,9 @@ class About extends Component {
 				<Button type="primary" onClick={this.creatElement.bind(this,'Card',{
 					text:"haha"
 				})}>Card</Button>
+				{console.log(this.elementTree)}
 				{this.elementTree}
+				<DeskIframe />
 			</div>
 		);
 	}
