@@ -58,6 +58,7 @@ class App extends Component {
       // selectKey
     });
   }
+
   buttonClick(name, props) {
     this.appendComponent(name, props);
   }

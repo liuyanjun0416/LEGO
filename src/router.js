@@ -42,7 +42,7 @@ export default class Routes extends Component {
                                 <Link to="/">
                                     <span>
                                         <Icon type="file" />
-                                        <span className="nav-text">Home</span>
+                                        <span className="nav-text">源码方法</span>
                                     </span>
                                 </Link>
                             </Menu.Item>
@@ -50,7 +50,7 @@ export default class Routes extends Component {
                                 <Link to="/about">
                                     <span>
                                         <Icon type="file" />
-                                        <span className="nav-text">About</span>
+                                        <span className="nav-text">createElement方法</span>
                                     </span>
                                 </Link>
                             </Menu.Item>
